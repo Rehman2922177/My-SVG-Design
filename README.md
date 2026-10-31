@@ -1,2 +1,536 @@
-# My-SVG-Design
-My First SVG Vector Design
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REHMAN GAMING - Ultimate Gaming Portal</title>
+    <style>
+        /* CSS RESET & VARIABLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        :root {
+            --bg-main: #0A0C10;
+            --bg-card: #141822;
+            --accent-cyan: #00F0FF;
+            --accent-purple: #8B00FF;
+            --text-main: #FFFFFF;
+            --text-muted: #94A3B8;
+            --border-color: #202736;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* NAVBAR */
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding: 18px 0;
+            background: rgba(10, 12, 16, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: var(--text-main);
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent-cyan);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .btn {
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            display: inline-block;
+            border: none;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            color: #000000;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 120px 0 100px;
+            background: linear-gradient(180deg, rgba(10,12,16,0.6) 0%, var(--bg-main) 100%), 
+                        url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            background: rgba(0, 240, 255, 0.1);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 18px;
+            margin: 0 auto 36px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        /* SECTION STYLING */
+        section {
+            padding: 90px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 5px;
+            height: 28px;
+            background: var(--accent-cyan);
+            display: inline-block;
+            border-radius: 3px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        /* CARDS */
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-img {
+            height: 220px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-tag {
+            color: var(--accent-cyan);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .card-desc {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: 16px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* STREAMER CARDS */
+        .streamer-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 16px;
+            border: 2px solid var(--accent-cyan);
+            object-fit: cover;
+        }
+
+        .status-live {
+            background: #FF0055;
+            color: white;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 60px 0 40px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#home" class="logo">REHMAN<span> GAMING</span></a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#games">Games</a></li>
+                    <li><a href="#tournaments">Esports</a></li>
+                    <li><a href="#streams">Streams</a></li>
+                    <li><a href="#gear">Gear & Specs</a></li>
+                    <li><a href="#news">News</a></li>
+                </ul>
+                <a href="#join" class="btn btn-primary">Join Community</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- PAGE 1: HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <span class="hero-badge">Welcome to Rehman Gaming Hub</span>
+            <h1>UNLEASH YOUR ULTIMATE<br>GAMING EXPERIENCE</h1>
+            <p>Explore top trending action games, competitive esports tournaments, live streams, and high-performance gaming rigs.</p>
+            <div class="hero-btns">
+                <a href="#games" class="btn btn-primary">Explore Games</a>
+                <a href="#tournaments" class="btn btn-outline">View Tournaments</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 2: FEATURED GAMES (NO PRICES) -->
+    <section id="games">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Trending Games</h2>
+                <a href="#all-games" class="btn btn-outline">View All Games</a>
+            </div>
+            <div class="grid-3">
+                
+                <div class="card">
+                    <img class="card-img" src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=800&auto=format&fit=crop" alt="Cyber Warfare">
+                    <div class="card-body">
+                        <span class="card-tag">Cyberpunk / Sci-Fi</span>
+                        <h3 class="card-title">Cyber Warfare 2099</h3>
+                        <p class="card-desc">Battle across futuristic cities in high-intensity tactical multiplayer arenas.</p>
+                        <div class="card-meta">
+                            <span>⭐ 4.9 Rating</span>
+                            <span>🎮 120k Active Players</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img class="card-img" src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=800&auto=format&fit=crop" alt="Shadow Quest">
+                    <div class="card-body">
+                        <span class="card-tag">Open World / RPG</span>
+                        <h3 class="card-title">Shadow Quest: Origins</h3>
+                        <p class="card-desc">Conquer ancient mythic realms and upgrade your warrior's legendary gear.</p>
+                        <div class="card-meta">
+                            <span>⭐ 4.8 Rating</span>
+                            <span>🎮 85k Active Players</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img class="card-img" src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800&auto=format&fit=crop" alt="Apex Battalion">
+                    <div class="card-body">
+                        <span class="card-tag">FPS / Battle Royale</span>
+                        <h3 class="card-title">Apex Battalion</h3>
+                        <p class="card-desc">Fast-paced 5v5 shooter engineered for international competitive tournaments.</p>
+                        <div class="card-meta">
+                            <span>⭐ 4.9 Rating</span>
+                            <span>🎮 250k Active Players</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 3: ESPORTS TOURNAMENTS -->
+    <section id="tournaments">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Esports Arena</h2>
+                <a href="#register-team" class="btn btn-outline">Register Your Team</a>
+            </div>
+            <div class="grid-3">
+                
+                <div class="card">
+                    <img class="card-img" src="https://images.unsplash.com/photo-1511882150382-421056c89033?q=80&w=800&auto=format&fit=crop" alt="Championship">
+                    <div class="card-body">
+                        <span class="card-tag">Live Tournament</span>
+                        <h3 class="card-title">Global Masters Cup</h3>
+                        <p class="card-desc">Top 16 squads battle for supremacy in tactical shooter showdowns.</p>
+                        <div class="card-meta">
+                            <span>🏆 Championship Match</span>
+                            <a href="#watch" class="btn btn-primary" style="padding: 4px 12px; font-size: 12px;">Watch Live</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img class="card-img" src="https://images.unsplash.com/photo-1560253023-3ec5d502959f?q=80&w=800&auto=format&fit=crop" alt="League Finals">
+                    <div class="card-body">
+                        <span class="card-tag">Upcoming Event</span>
+                        <h3 class="card-title">Shadow League Season 4</h3>
+                        <p class="card-desc">Open qualifiers start this weekend. Gear up and claim your ranking.</p>
+                        <div class="card-meta">
+                            <span>📅 Starts Nov 15</span>
+                            <a href="#register" class="btn btn-outline" style="padding: 4px 12px; font-size: 12px;">Register</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img class="card-img" src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800&auto=format&fit=crop" alt="Speedrun Clash">
+                    <div class="card-body">
+                        <span class="card-tag">Community Clash</span>
+                        <h3 class="card-title">Speedrun & Battle Series</h3>
+                        <p class="card-desc">Fastest survival completions ranked live on the Rehman Gaming leaderboard.</p>
+                        <div class="card-meta">
+                            <span>🔥 Leaderboard Challenge</span>
+                            <a href="#join-clash" class="btn btn-outline" style="padding: 4px 12px; font-size: 12px;">Join</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 4: STREAMERS & CREATORS -->
+    <section id="streams">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Live Creators</h2>
+            </div>
+            <div class="grid-4">
+                
+                <div class="streamer-card">
+                    <img class="avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=300&auto=format&fit=crop" alt="Pro Streamer">
+                    <span class="status-live">LIVE NOW</span>
+                    <h4 style="font-size: 18px;">Valkyrie_RG</h4>
+                    <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 12px;">Cyber Warfare Ranked</p>
+                    <a href="#stream1" class="btn btn-outline" style="width: 100%;">Watch Stream</a>
+                </div>
+
+                <div class="streamer-card">
+                    <img class="avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop" alt="Pro Streamer">
+                    <span class="status-live">LIVE NOW</span>
+                    <h4 style="font-size: 18px;">Rehman_Gamer</h4>
+                    <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 12px;">Apex Finals Gameplay</p>
+                    <a href="#stream2" class="btn btn-outline" style="width: 100%;">Watch Stream</a>
+                </div>
+
+                <div class="streamer-card">
+                    <img class="avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=300&auto=format&fit=crop" alt="Pro Streamer">
+                    <span class="status-live">LIVE NOW</span>
+                    <h4 style="font-size: 18px;">Shadow_Ghost</h4>
+                    <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 12px;">RPG Speedrun Raids</p>
+                    <a href="#stream3" class="btn btn-outline" style="width: 100%;">Watch Stream</a>
+                </div>
+
+                <div class="streamer-card">
+                    <img class="avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=300&auto=format&fit=crop" alt="Pro Streamer">
+                    <span class="status-live">LIVE NOW</span>
+                    <h4 style="font-size: 18px;">Neon_Queen</h4>
+                    <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 12px;">Esports Watch Party</p>
+                    <a href="#stream4" class="btn btn-outline" style="width: 100%;">Watch Stream</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 5: GAMING GEAR & HARDWARE -->
+    <section id="gear">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Hardware & Rigs</h2>
+            </div>
+            <div class="grid-3">
+                
+                <div class="card">
+                    <img class="card-img" src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?q=80&w=800&auto=format&fit=crop" alt="Gaming Setup">
+                    <div class="card-body">
+                        <span class="card-tag">Rig Specification</span>
+                        <h3 class="card-title">Ultimate Esports PC</h3>
+                        <p class="card-desc">Optimized for high-FPS competitive gameplay at 240Hz refresh rates.</p>
+                        <div class="card-meta">
+                            <span>🎮 Tested on 4K High</span>
+                            <a href="#specs" class="btn btn-outline" style="padding: 4px 12px; font-size: 12px;">View Specs</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img class="card-img" src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?q=80&w=800&auto=format&fit=crop" alt="Peripherals">
+                    <div class="card-body">
+                        <span class="card-tag">Peripherals</span>
+                        <h3 class="card-title">Pro Mechanical Setup</h3>
+                        <p class="card-desc">Ultra-low latency mechanical switches and custom RGB lighting profiles.</p>
+                        <div class="card-meta">
+                            <span>⚙️ Ultra Response</span>
+                            <a href="#gear-details" class="btn btn-outline" style="padding: 4px 12px; font-size: 12px;">Read Guide</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img class="card-img" src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?q=80&w=800&auto=format&fit=crop" alt="Gaming Headset">
+                    <div class="card-body">
+                        <span class="card-tag">Audio Experience</span>
+                        <h3 class="card-title">7.1 Surround Headsets</h3>
+                        <p class="card-desc">Immersive spatial audio tuned for pinpoint footstep accuracy in tactical games.</p>
+                        <div class="card-meta">
+                            <span>🎧 Spatial Sound</span>
+                            <a href="#audio-specs" class="btn btn-outline" style="padding: 4px 12px; font-size: 12px;">Explore</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <h3 style="color: white; margin-bottom: 12px; letter-spacing: 2px;">REHMAN GAMING</h3>
+            <p>&copy; 2026 REHMAN GAMING. All rights reserved. Designed for UI/UX Behance Showcase.</p>
+        </div>
+    </footer>
+
+</body>
+</html><img width="2546" height="1418" alt="image" src="https://github.com/user-attachments/assets/346ea226-633c-4c80-b284-a4454f7b7422" />
